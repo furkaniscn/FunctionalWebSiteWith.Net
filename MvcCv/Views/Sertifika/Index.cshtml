@@ -1,0 +1,73 @@
+﻿
+@using MvcCv.Models.Entity
+@model List<TblSertifikalarim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    <!-- timeline time label -->
+                                    @{
+                                        int index = 0;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        bool isGreen = (index % 2 == 0);
+                                        string buttonClass = isGreen ? "btn btn-success" : "btn btn-primary";
+                                        string spanClass = isGreen ? "bg-success" : "bg-primary";
+                                        index++;
+
+                                        <div class="time-label">
+                                            <a href="/Sertifika/SertifikaGetir/@item.ID" class="@buttonClass">
+                                                <span class="@spanClass">
+                                                    @item.Tarih
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <div class="timeline-item">
+                                                <div class="timeline-body">
+                                                    @item.Aciklama
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <a href="/Sertifika/YeniSertifika" class="btn btn-info">Yeni Sertifika Girişi</a>
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+</html>
+
+
