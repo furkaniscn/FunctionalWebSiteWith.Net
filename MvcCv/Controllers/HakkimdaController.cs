@@ -10,7 +10,7 @@ using MvcCv.Repositories;
 
 namespace MvcCv.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HakkimdaController : Controller
     {
         // GET: Hakkimda

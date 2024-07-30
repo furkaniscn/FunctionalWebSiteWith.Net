@@ -8,7 +8,7 @@ using MvcCv.Repositories;
 
 namespace MvcCv.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class SertifikaController : Controller
     {
         // GET: Sertifika

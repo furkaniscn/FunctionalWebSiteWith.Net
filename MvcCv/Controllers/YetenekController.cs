@@ -8,7 +8,7 @@ using MvcCv.Repositories;
 
 namespace MvcCv.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class YetenekController : Controller
     {
         // GET: Yetenek

@@ -8,6 +8,7 @@ using MvcCv.Repositories;
 
 namespace MvcCv.Controllers
 {
+    [Authorize]
     public class IletisimController : Controller
     {
         // GET: Iletisim

@@ -1,0 +1,199 @@
+﻿
+@using MvcCv.Models.Entity
+@model List<TblSosyalMedya>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <h2>Sosyal Medya Hesapları Listesi</h2>
+                                <button class="btn btn-outline-info" data-toggle="modal"
+                                        data-target="#Modal1">
+                                    Yeni Sosyal Medya Hesabı Ekle
+                                </button>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Sosyal Medya</th>
+                                            <th>Durum</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            <tr>
+                                                <td>@x.ID</td>
+                                                <td>@x.Ad</td>
+                                                <td>@(x.Durum.HasValue && x.Durum.Value ? "Aktif" : "Pasif")</td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm" href="/SosyalMedya/SayfaGetir/@x.ID">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger btn-sm" href="/SosyalMedya/Sil/@x.ID">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="Modal1Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Modal1Label">
+                            <span style="color: #ff0000;">S</span>
+                            <span style="color: #ff4000;">o</span>
+                            <span style="color: #ff8000;">s</span>
+                            <span style="color: #ffbf00;">y</span>
+                            <span style="color: #ffff00;">a</span>
+                            <span style="color: #bfff00;">l</span>
+                            <span style="color: #80ff00;"> </span>
+                            <span style="color: #80ff00;"> </span>
+                            <span style="color: #80ff00;"> </span>
+                            <span style="color: #40ff00;">M</span>
+                            <span style="color: #00ff00;">e</span>
+                            <span style="color: #00ff40;">d</span>
+                            <span style="color: #00ff80;">y</span>
+                            <span style="color: #00ffbf;">a</span>
+                            <span style="color: #00ffff;"> </span>
+                            <span style="color: #00ffff;"> </span>
+                            <span style="color: #00ffff;"> </span>
+                            <span style="color: #00bfff;">H</span>
+                            <span style="color: #0080ff;">e</span>
+                            <span style="color: #0040ff;">s</span>
+                            <span style="color: #0000ff;">a</span>
+                            <span style="color: #4000ff;">b</span>
+                            <span style="color: #8000ff;">ı</span>
+                            <span style="color: #bf00ff;"> </span>
+                            <span style="color: #bf00ff;"> </span>
+                            <span style="color: #bf00ff;"> </span>
+                            <span style="color: #ff00ff;">E</span>
+                            <span style="color: #ff00bf;">k</span>
+                            <span style="color: #ff0080;">l</span>
+                            <span style="color: #ff0040;">e</span>
+                            <span style="color: #ff0000;">m</span>
+                            <span style="color: #ff4000;">e</span>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/SosyalMedya/Ekle">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="socialMediaName">Sosyal Medya İsmi</label>
+                                <input type="text" class="form-control" id="socialMediaName" name="Ad" placeholder="Örneğin: Facebook, Twitter">
+                            </div>
+                            <div class="form-group">
+                                <label for="socialMediaLink">Sosyal Medya Linki</label>
+                                <input type="text" class="form-control" id="socialMediaLink" name="Link" placeholder="https://...">
+                            </div>
+                            <div class="form-group">
+                                <label for="socialMediaIcon">Sosyal Medya İkonu</label>
+                                <input type="text" class="form-control" id="socialMediaIcon" name="Ikon" placeholder="Örneğin: fab fa-facebook">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                            <button type="submit" class="btn btn-info">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="modal" id="Modal1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Sosyal Medya Hesabı Ekleme Penceresi</h2>
+                        </div>,
+                        <form method="post" action="/SosyalMedya/Ekle">
+                            <div class="modal-body">
+                                <label>Sosyal Medya İsmi</label>
+                                <input type="text" name="Ad" class="form-control" />
+                                <label>Sosyal Medya Linki</label>
+                                <input type="text" name="Link" class="form-control" />
+                                <label>Sosyal Medya İkonu</label>
+                                <input type="text" name="Ikon" class="form-control" />
+                                <br />
+                                <button class="btn btn-info">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+</body>
+</html>
+
+<style>
+    .modal-title {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: bold;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        .modal-title span {
+            margin-right: 2px;
+        }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: none;
+    }
+
+    .modal-body,
+    .modal-footer {
+        padding: 20px;
+    }
+
+    .modal-content {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .modal-dialog {
+        max-width: 500px;
+        margin: 30px auto;
+    }
+</style>
+
+
