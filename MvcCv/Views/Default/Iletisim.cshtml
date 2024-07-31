@@ -1,23 +1,54 @@
-﻿
-<div class="resume-section-content">
+﻿<div class="resume-section-content">
     <form method="post">
-        <h2 class="mb-5">İletişim</h2>
-        <label>Ad</label>
-        <input type="text" class="form-control" name="Ad" />
+        <h2 class="mb-5">İLETİŞİM</h2>
+        <div class="form-group">
+            <label for="Ad">Ad</label>
+            <input type="text" class="form-control" id="Ad" name="Ad" />
+        </div>
 
-        <label>Soyad</label>
-        <input type="text" class="form-control" name="Soyad" />
+        <div class="form-group">
+            <label for="Soyad">Soyad</label>
+            <input type="text" class="form-control" id="Soyad" name="Soyad" />
+        </div>
 
-        <label>Mail</label>
-        <input type="text" class="form-control" name="Mail"/>
+        <div class="form-group">
+            <label for="Mail">Mail</label>
+            <input type="email" class="form-control" id="Mail" name="Mail" />
+        </div>
 
-        <label>Konu</label>
-        <input type="text" class="form-control" name="Konu" />
+        <div class="form-group">
+            <label for="Konu">Konu</label>
+            <input type="text" class="form-control" id="Konu" name="Konu" />
+        </div>
 
-        <label>Mesaj</label>
-        <input type="text" class="form-control" name="Mesaj"/>
+        <div class="form-group">
+            <label for="Mesaj">Mesaj</label>
+            <textarea class="form-control" id="Mesaj" name="Mesaj" rows="4"></textarea>
+        </div>
         <br />
-        <button class="btn btn-info">Mesaj Gönder</button>
+        <button type="submit" class="btn btn-custom-dark-orange btn-lg btn-block">Mesaj Gönder</button>
     </form>
-
 </div>
+
+<style>
+    .btn-custom-dark-orange {
+        background-color: #e65c00; 
+        border-color: #e65c00; 
+        color: #ffffff;
+        padding: 12px 20px;
+        border-radius: 30px; 
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+        .btn-custom-dark-orange:hover {
+            background-color: #d55b00; 
+            border-color: #d55b00;
+        }
+
+        .btn-custom-dark-orange:focus, .btn-custom-dark-orange.focus {
+            box-shadow: 0 0 0 0.2rem rgba(230, 92, 0, 0.5); 
+        }
+</style>

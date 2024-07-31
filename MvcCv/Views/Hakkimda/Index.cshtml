@@ -1,32 +1,54 @@
-﻿
-@using MvcCv.Models.Entity
+﻿@using MvcCv.Models.Entity
 @model List<TblHakkimda>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Hakkımda Düzenleme";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <br />
-<h2>Hakkımda Düzenleme Sayfası</h2>
-<br />
-<form method="post">
-    @foreach (var item in Model)
-    {
-        <label>Ad</label>
-        <input type="text" class="form-control" name="Ad" value="@item.Ad" />
-        <label>Soyad</label>
-        <input type="text" class="form-control" name="Soyad" value="@item.Soyad" />
-        <label>Adres</label>
-        <input type="text" class="form-control" name="Adres" value="@item.Adres" />
-        <label>Telefon</label>
-        <input type="text" class="form-control" name="Telefon" value="@item.Telefon" />
-        <label>Mail</label>
-        <input type="text" class="form-control" name="Mail" value="@item.Mail" />
-        <label>Resim</label>
-        <input type="text" class="form-control" name="Resim" value="@item.Resim" />
-        <label>Açıklama</label>
-        <textarea rows="5" class="form-control" name="Aciklama">@item.Aciklama</textarea>
-    }
-    <br />
-    <button class="btn btn-success">Güncelle</button>
-</form>
+<h2 class="text-center">Hakkımda Düzenleme Sayfası</h2>
+
+<div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+        <form method="post">
+            @foreach (var item in Model)
+            {
+                <div class="form-group">
+                    <label for="Ad">Ad</label>
+                    <input type="text" class="form-control" id="Ad" name="Ad" value="@item.Ad" placeholder="Adınız">
+                </div>
+
+                <div class="form-group">
+                    <label for="Soyad">Soyad</label>
+                    <input type="text" class="form-control" id="Soyad" name="Soyad" value="@item.Soyad" placeholder="Soyadınız">
+                </div>
+
+                <div class="form-group">
+                    <label for="Adres">Adres</label>
+                    <input type="text" class="form-control" id="Adres" name="Adres" value="@item.Adres" placeholder="Adresiniz">
+                </div>
+
+                <div class="form-group">
+                    <label for="Telefon">Telefon</label>
+                    <input type="text" class="form-control" id="Telefon" name="Telefon" value="@item.Telefon" placeholder="Telefon numaranız">
+                </div>
+
+                <div class="form-group">
+                    <label for="Mail">Mail</label>
+                    <input type="email" class="form-control" id="Mail" name="Mail" value="@item.Mail" placeholder="Email adresiniz">
+                </div>
+
+                <div class="form-group">
+                    <label for="Resim">Resim</label>
+                    <input type="text" class="form-control" id="Resim" name="Resim" value="@item.Resim" placeholder="Resim URL'si">
+                </div>
+
+                <div class="form-group">
+                    <label for="Aciklama">Açıklama</label>
+                    <textarea rows="5" class="form-control" id="Aciklama" name="Aciklama" placeholder="Kendiniz hakkında bir şeyler yazın...">@item.Aciklama</textarea>
+                </div>
+            }
+            <button type="submit" class="btn btn-success btn-block">Güncelle</button>
+        </form>
+    </div>
+</div>
