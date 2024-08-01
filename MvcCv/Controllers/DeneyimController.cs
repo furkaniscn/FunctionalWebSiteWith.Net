@@ -12,8 +12,8 @@ namespace MvcCv.Controllers
     public class DeneyimController : Controller
     {
         // GET: Deneyim
-        DeneyimRepository repo = new DeneyimRepository();
-        
+        //DeneyimRepository repo = new DeneyimRepository();
+        GenericRepository<TblDeneyimlerim> repo = new GenericRepository<TblDeneyimlerim>();
         public ActionResult Index()
         {
             var degerler = repo.List();

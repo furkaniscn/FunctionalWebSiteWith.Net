@@ -8,14 +8,17 @@ using MvcCv.Repositories;
 
 namespace MvcCv.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class SosyalMedyaController : Controller
     {
         // GET: SosyalMedya
         GenericRepository<TblSosyalMedya> repo = new GenericRepository<TblSosyalMedya> ();
+        //GenericRepository<TblHakkimda> repo2 = new GenericRepository<TblHakkimda> ();
         public ActionResult Index()
         {
             var veriler = repo.List();
+            //var resim = repo2.List();
+            //ViewBag.Resim = resim;
             return View(veriler);
         }
 

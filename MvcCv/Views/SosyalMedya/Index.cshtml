@@ -2,7 +2,7 @@
 @using MvcCv.Models.Entity
 @model List<TblSosyalMedya>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sosyal Medya Düzenleme";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -20,8 +20,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <h2>Sosyal Medya Hesapları Listesi</h2>
-                                <button class="btn btn-outline-info" data-toggle="modal"
-                                        data-target="#Modal1">
+                                <button class="btn btn-outline-info" data-toggle="modal"data-target="#Modal1">
                                     Yeni Sosyal Medya Hesabı Ekle
                                 </button>
                                 <br />
@@ -114,15 +113,15 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="socialMediaName">Sosyal Medya İsmi</label>
-                                <input type="text" class="form-control" id="socialMediaName" name="Ad" placeholder="Örneğin: Facebook, Twitter">
+                                <input type="text" class="form-control" id="Ad" name="Ad" placeholder="Örneğin: Facebook, Twitter">
                             </div>
                             <div class="form-group">
                                 <label for="socialMediaLink">Sosyal Medya Linki</label>
-                                <input type="text" class="form-control" id="socialMediaLink" name="Link" placeholder="https://...">
+                                <input type="text" class="form-control" id="Link" name="Link" placeholder="https://...">
                             </div>
                             <div class="form-group">
                                 <label for="socialMediaIcon">Sosyal Medya İkonu</label>
-                                <input type="text" class="form-control" id="socialMediaIcon" name="Ikon" placeholder="Örneğin: fab fa-facebook">
+                                <input type="text" class="form-control" id="Ikon" name="Ikon" placeholder="Örneğin: fab fa-facebook">
                             </div>
                         </div>
                         <div class="modal-footer">
